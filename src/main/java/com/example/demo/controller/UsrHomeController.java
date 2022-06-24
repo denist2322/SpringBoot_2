@@ -79,7 +79,14 @@ public class UsrHomeController {
 	@RequestMapping("/usr/home/getArticles")
 	@ResponseBody
 	public List<Article> getArticles() {
-		return articles;
+		Article article1 = new Article(1,"제목1","내용1");
+		Article article2 = new Article(2,"제목2","내용2");
+		
+		List<Article> list = new ArrayList<>();
+		list.add(article1);
+		list.add(article2);
+		
+		return list;
 	}
 	
 }
