@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.Data;
 import lombok.Getter;
+import vo.Article;
 
 @Controller
 public class UsrHomeController {
@@ -70,23 +71,16 @@ public class UsrHomeController {
 	@RequestMapping("/usr/home/getArticle")
 	@ResponseBody
 	public Article getArticle() {
-		Article article = new Article();
+		Article article = new Article(1,"제목1","내용1");
 		
 		return article;
 	}
-
-@Data
-class Article{
-	@Getter
-	private int id;
-	@Getter
-	private String title;
 	
-	public Article() {
-		id = 1;
-		title = "제목1";
+	@RequestMapping("/usr/home/getArticles")
+	@ResponseBody
+	public List<Article> getArticles() {
+		return articles;
 	}
-}
-		
+	
 }
 
