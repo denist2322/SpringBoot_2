@@ -9,39 +9,21 @@ public class UsrHomeController {
 	private int cnt;
 	
 	public UsrHomeController() {
-		cnt = 0;
+		cnt = -1;
 	}
 	
-	@RequestMapping("/usr/home/main")
+	@RequestMapping("/usr/home/getCount")
 	@ResponseBody
-	public String ShowMain() {
-		return "안녕하세요.";
-	}	
-	
-	@RequestMapping("/usr/home/main2")
-	@ResponseBody
-	public String ShowMain2() {
-		return "점심 감사합니다1.";
-	}	
-	
-	@RequestMapping("/usr/home/main3")
-	@ResponseBody
-	public String ShowMain3() {
-		return "점심 감사합니다.";
-	}	
-	
-	@RequestMapping("/usr/home/main4")
-	@ResponseBody
-	public int ShowMain4() {
-		cnt ++;
+	public int getCount() {
 		return cnt;
 	}	
 	
-	@RequestMapping("/usr/home/main5")
+	@RequestMapping("/usr/home/doSetCount")
 	@ResponseBody
-	public String ShowMain5() {
-		cnt =0;
-		return "0으로 초기화 되었수다.";
-	}	
+	public String doSetCount(int cnt) {
+		this.cnt = cnt;
+		return "count의 값이" +this.cnt+ "으로 초기화 되었습니다.";
+	}
+		
 }
 
